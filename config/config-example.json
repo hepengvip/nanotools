@@ -1,0 +1,12 @@
+{
+    "celery_broker":"redis://localhost:6379/1",
+    "webapi_addr":{
+        "address":"localhost",
+        "port":8080
+    },
+    "cors":{
+        "origin allowed":"*",
+        "headers allowed":"*",
+        "methods allowed":"*"
+    }
+}

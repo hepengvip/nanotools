@@ -1,0 +1,16 @@
+# vscode
+.vscode/
+
+*.pyc
+
+config.json
+.config.json
+
+*.log
+logs/*.log.*
+
+.coverage
+.pytest_cache
+
+nanotools.egg-info/
+dist/
