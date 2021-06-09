@@ -27,7 +27,8 @@ def get_web_apis():
         file = os.path.abspath(file)
         logger.debug(f' *   发现视图文件：{file}')
         module_name = os.path.basename(file)[:-3]
-        module = importlib.import_module(f'nanotools.service.api.{module_name}')
+        module = importlib.import_module(
+            f'nanotools.service.api.{module_name}')
         modules.append(module)
         logger.debug(f' *   搜索模块：{module.__name__}')
 

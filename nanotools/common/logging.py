@@ -8,34 +8,37 @@ import tornado.log
 from nanotools.common import ensure_dir
 
 
+FMT = "[%(asctime)s][%(levelname)s] - %(filename)s:%(lineno)s - %(message)s"
+
+
 SERVER_LOGGING_CONFIG = {
-        "version":1,
-        "disable_existing_loggers":False,
-        "formatters":{
-            "default":{
-                "format":"[%(asctime)s][%(levelname)s] - %(filename)s:%(lineno)s - %(message)s",
-                "encoding":"utf-8"
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "default": {
+                "format": FMT,
+                "encoding": "utf-8"
             }
         },
-        "handlers":{
-            "nanotools":{
-                "level":"DEBUG",
-                "filters":None,
-                "class":"logging.handlers.TimedRotatingFileHandler",
-                "filename":"./logs/nanotools.log",
-                "formatter":"default",
-                "encoding":"utf-8",
-                "when":"D"
+        "handlers": {
+            "nanotools": {
+                "level": "DEBUG",
+                "filters": None,
+                "class": "logging.handlers.TimedRotatingFileHandler",
+                "filename": "./logs/nanotools.log",
+                "formatter": "default",
+                "encoding": "utf-8",
+                "when": "D"
             }
         },
-        "loggers":{
-            "nanotools":{
-                "handlers":[
+        "loggers": {
+            "nanotools": {
+                "handlers": [
                     "nanotools"
                 ],
-                "level":"DEBUG",
-                "encoding":"utf-8",
-                "propagate":True
+                "level": "DEBUG",
+                "encoding": "utf-8",
+                "propagate": True
             }
         }
     }

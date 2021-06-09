@@ -17,7 +17,7 @@ task_default_queue = 'default'
 beat_schedule = {
     'perid_proc': {
         'task': 'nanotools.tasks.test.perid_proc',
-        'schedule': 5,
+        'schedule': crontab(minute=0, hour=0),
     },
 }
 
