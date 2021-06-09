@@ -95,3 +95,20 @@ def resp(content_type=DEFAULT_CONTENT_TYPE):
             handler.finish()
         return wrapper
     return decorator
+
+
+def resp_raw(content_type=DEFAULT_CONTENT_TYPE):
+    """自动响应"""
+    def decorator(func):
+        async def wrapper(handler, *args, **kwargs):
+            handler.set_status(status_code=200, reason='ok')
+            try:
+                reply = await func(handler, *args, **kwargs)
+                reply_str = json.dumps(reply)
+            except AppException as e:
+                reply_str = str(e)
+            handler.write(reply_str)
+            handler.set_header('Content-Type', content_type)
+            handler.finish()
+        return wrapper
+    return decorator
