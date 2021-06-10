@@ -43,7 +43,7 @@ class UWSGIStatQuery(BaseHandler):
             app_name) if app_name else dict(items=[])
         ret_data = [{
             "type": "table",
-            "columns": [dict(text=col, type='string') for col in cols],
+            "columns": cols,
             "rows": sorted(data['items']),
         }]
         return ret_data

@@ -188,7 +188,7 @@ async def query(app_name):
     items = [handle_data(*(await coro)) for coro in asyncio.as_completed(aws)]
     items = list(filter(lambda x: x, items))
     if not items:
-        return None
+        return dict(items=[])
 
     ret_data = dict()
     reqs = sum([item['summary']['total_requests'] for item in items])
